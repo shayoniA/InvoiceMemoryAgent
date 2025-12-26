@@ -23,7 +23,7 @@ function bootstrap() {
   if (recallResult.isDuplicate)
     console.log("Duplicate invoice detected - skipping learning & auto-correction.");
   // Apply
-  const applied = applyMemory(invoice, recallResult.memories);
+  const applied = applyMemory(invoice, recallResult.memories, recallResult.detectedPatterns);
   logAudit(invoice.invoiceId, "apply", JSON.stringify(applied.proposedCorrections));
   // Decide
   const finalConfidence = Math.min(1, invoice.confidence + applied.confidenceBoost);
