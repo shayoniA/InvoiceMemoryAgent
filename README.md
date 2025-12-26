@@ -28,13 +28,7 @@ Example audit steps:
 
 
 **Input Format**: Invoices are read from *data/invoices_extracted.json*. Each invoice must have a unique invoiceId.
-**Output Format**: The agent outputs a structured and fully transparent result, containing:
-	normalizedInvoice
-	proposedCorrections
-	confidenceScore
-	requiresHumanReview
-	memoryUpdates
-	auditTrail
+**Output Format**: The agent outputs a structured and fully transparent result, containing:  normalizedInvoice, proposedCorrections, confidenceScore, requiresHumanReview, memoryUpdates, auditTrail.
 
 
 **Core Logic**:
@@ -65,9 +59,7 @@ Example:  *0.78 (base) + 0.05 (memory boost) = 0.83*
 
 9. **Learning & Memory Update (Controlled)**: src/memory/memoryStore.ts
 Memory is updated only if - Invoice is not duplicate, Correction was applied, Confidence is high. For duplicate invoice, learning is skipped.
-*timesUsed++
-timesApproved++
-confidence += small_delta*
+*timesUsed++; timesApproved++; confidence += small_delta*
 
 10. **Audit Trail Generation**: src/audit/auditTrail.ts
 Audit steps include: recall --> apply --> decide --> learn. Every step is recorded -
