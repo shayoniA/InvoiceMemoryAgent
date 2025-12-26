@@ -1,4 +1,10 @@
-**Invoice Memory Agent**: An AI-powered invoice processing agent that learns from past invoices, applies vendor-specific memory, and produces auditable, explainable corrections with confidence-based decision making. The project demonstrates Structured extraction + Persistent memory + Conservative learning + Human-in-the-loop safety + Full auditability. Its key features are:
+**Invoice Memory Agent**: An AI-powered invoice processing agent that learns from past invoices, applies vendor-specific memory, and produces auditable, explainable corrections with confidence-based decision making. The project demonstrates Structured extraction + Persistent memory + Conservative learning + Human-in-the-loop safety + Full auditability.
+
+Here is the demo video:  https://drive.google.com/file/d/13K1Ban2fhJGkOpe8KDr-IMeWLrnAlJ7r/view?usp=sharing
+
+<img width="854" height="1550" alt="image" src="https://github.com/user-attachments/assets/c800c34c-4f5e-40bd-8802-f3a04c8f4d56" />
+
+Its key features are:
 
 1. **Vendor-Specific Memory** - The agent maintains long-term memory per vendor, such as Common field patterns (eg. service date naming) and Historical correction confidence. Memory is stored persistently and reused across runs.
 
