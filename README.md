@@ -2,7 +2,7 @@
 
 Here is the demo video:  https://drive.google.com/file/d/13K1Ban2fhJGkOpe8KDr-IMeWLrnAlJ7r/view?usp=sharing
 
-<img width="700" height="1270.5" alt="image" src="https://github.com/user-attachments/assets/c800c34c-4f5e-40bd-8802-f3a04c8f4d56" />
+<img width="600" height="1089" alt="image" src="https://github.com/user-attachments/assets/c800c34c-4f5e-40bd-8802-f3a04c8f4d56" />
 
 Its key features are:
 
