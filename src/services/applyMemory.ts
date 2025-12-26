@@ -3,7 +3,8 @@ import { BaseMemory } from "../types/memory";
 
 export function applyMemory(
   invoice: Invoice,
-  memories: BaseMemory[]
+  memories: BaseMemory[],
+  detectedPatterns: string[]
 ) {
   const proposedCorrections: string[] = [];
   let confidenceBoost = 0;
@@ -12,6 +13,7 @@ export function applyMemory(
     if (mem.memoryType === "VENDOR") {
       if (
         mem.pattern === "SERVICE_DATE_IN_TEXT" &&
+        detectedPatterns.includes(mem.pattern) &&
         !invoice.fields.serviceDate &&
         invoice.rawText.includes("Leistungsdatum")
       ) {
