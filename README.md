@@ -29,12 +29,12 @@ Example audit steps:
 
 **Input Format**: Invoices are read from *data/invoices_extracted.json*. Each invoice must have a unique invoiceId.
 **Output Format**: The agent outputs a structured and fully transparent result, containing:
-normalizedInvoice
-proposedCorrections
-confidenceScore
-requiresHumanReview
-memoryUpdates
-auditTrail
+	normalizedInvoice
+	proposedCorrections
+	confidenceScore
+	requiresHumanReview
+	memoryUpdates
+	auditTrail
 
 
 **Core Logic**:
@@ -54,22 +54,22 @@ Memory is recalled using vendor + memoryType + detected patterns. Only relevant 
    confidence: 0.85
 }
 
-5. **Memory Application (Auto-Correction)**: src/index.ts
+6. **Memory Application (Auto-Correction)**: src/index.ts
 If a field is missing / a matching memory exists / confidence is high enough, then the agent applies a correction that is explainable and logged - Filled serviceDate using vendor memory (Leistungsdatum).
 
-6. **Confidence Scoring**: src/decision/decide.ts
+7. **Confidence Scoring**: src/decision/decide.ts
 Final confidence is computed using - Base invoice confidence, Memory confidence boosts, Penalties for uncertainty.
 Example:  *0.78 (base) + 0.05 (memory boost) = 0.83*
 
-7. **Decision Gate (Human-in-the-Loop)**: Safe automation based on final confidence - *requiresHumanReview = confidence < 0.75* (threshold)
+8. **Decision Gate (Human-in-the-Loop)**: Safe automation based on final confidence - *requiresHumanReview = confidence < 0.75* (threshold)
 
-8. **Learning & Memory Update (Controlled)**: src/memory/memoryStore.ts
+9. **Learning & Memory Update (Controlled)**: src/memory/memoryStore.ts
 Memory is updated only if - Invoice is not duplicate, Correction was applied, Confidence is high. For duplicate invoice, learning is skipped.
 *timesUsed++
 timesApproved++
 confidence += small_delta*
 
-9. **Audit Trail Generation**: src/audit/auditTrail.ts
+10. **Audit Trail Generation**: src/audit/auditTrail.ts
 Audit steps include: recall --> apply --> decide --> learn. Every step is recorded -
 {
   "step": "recall",
