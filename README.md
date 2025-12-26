@@ -2,7 +2,7 @@
 Here is the **demo video**:  https://drive.google.com/file/d/13K1Ban2fhJGkOpe8KDr-IMeWLrnAlJ7r/view?usp=sharing
 
 **How to Run**:
-1. Install dependencies - *npm install*  (*pip install -r requirements.txt*)
+1. Install dependencies - *npm install*
 2. Seed initial memory - *npx ts-node src/seedMemory.ts*
 3. Run the agent - *npx ts-node src/index.ts*
 
